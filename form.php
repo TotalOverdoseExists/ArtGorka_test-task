@@ -4,12 +4,11 @@ try { // пробуем обработать и отправить информ�
 	$cleanTel = trim(htmlspecialchars($_REQUEST['tel']));
 	$cleanEmail = filter_var(filter_var($_REQUEST['email'], FILTER_SANITIZE_EMAIL), FILTER_VALIDATE_EMAIL); // нормализуем и валидируем email
 	$body = 'Имя: ' . $cleanName . PHP_EOL; // формируем тело письма
-	$body .= 'Телефон: ' . $cleanTel . PHP_EOL;
-	mail( // отправляем письмо
-		$cleanEmail,
-		'Сообщение из формы',
-		$body
-	);
+	$body .= 'Телефон: ' . $cleanTel;
+	$headers = 'From: verylonghair00@gmail.com' . PHP_EOL .
+    'Reply-To: verylonghair00@gmail.com' . PHP_EOL .
+    'X-Mailer: PHP/' . phpversion(); // формируем заголовки
+	mail($cleanEmail, 'Сообщение из формы', $body, $headers); // отправляем письмо
 } catch (Exception $e) { // если ошибка, выводим ее
 	echo 'Message: ' .$e->getMessage();
 }

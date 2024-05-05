@@ -41,6 +41,10 @@ form > div > button {
 	background-color: violet;
 }
 
+.active {
+	background-color: greenyellow;
+}
+
 h1 {
 	text-align: center;
 	text-transform: uppercase;

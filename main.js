@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => { // ждем, когда весь DOM загрузится
 	let form = document.querySelector('form')
+	let currentMethod = document.querySelector('#currentMethod')
 
 	document.querySelector('#buttonGET').addEventListener('click', (e) => { // вешаем слушатели на кнопки, чтобы менять метод отправки
 		e.preventDefault()
 		form.method = 'get'
+		currentMethod.innerHTML = 'get'
 	})
 
 	document.querySelector('#buttonPOST').addEventListener('click', (e) => { // вешаем слушатели на кнопки, чтобы менять метод отправки
 		e.preventDefault()
 		form.method = 'post'
+		currentMethod.innerHTML = 'post'
 	})
 
 	form.addEventListener('submit', (e) => { // добавляет слушатель на форму
